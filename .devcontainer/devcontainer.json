@@ -1,11 +1,15 @@
 {
-  "extensions": [
-    "GitHub.github-vscode-theme"
-    // Additional Extensions Here
-  ],
-  "onCreateCommand": "echo PS1='\"$ \"' >> ~/.bashrc",
-  "postAttachCommand": "git pull --all"
-  
-  // Update welcome text and set terminal prompt to '$ '
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "Oracle.oracle-java",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "GitHub.github-vscode-theme"
+      ]
+    }
+  }
 }
-// DevContainer Reference: https://code.visualstudio.com/docs/remote/devcontainerjson-reference
