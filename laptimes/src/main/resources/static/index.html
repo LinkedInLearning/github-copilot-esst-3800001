@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lap Times</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="lapTimesTable">
+    <tr>
+      <th>Driver</th>
+      <th>Car</th>
+      <th>Track</th>
+      <th>Lap Time</th>
+      <th>Date</th>
+    </tr>
+    <!-- Lap times will be inserted here -->
+  </table>
+
+  <script>
+    fetch('http://localhost:8080/api/laptimes')
+      .then(response => response.json())
+      .then(lapTimes => {
+        const table = document.getElementById('lapTimesTable');
+        lapTimes.forEach(lapTime => {
+          const row = table.insertRow();
+          row.insertCell().textContent = lapTime.driver;
+          row.insertCell().textContent = lapTime.car;
+          row.insertCell().textContent = lapTime.track;
+          row.insertCell().textContent = lapTime.lapTime;
+          row.insertCell().textContent = lapTime.date;
+        });
+      });
+  </script>
+</body>
+
+</html>
